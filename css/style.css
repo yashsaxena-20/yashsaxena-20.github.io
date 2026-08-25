@@ -283,7 +283,7 @@ img { max-width: 100%; display: block; }
   color: var(--teal);
 }
 
-/* ── Partition diagram (signature element) ── */
+/* ── Linkograph diagram (signature element) ── */
 .hero-visual {
   display: flex;
   flex-direction: column;
@@ -291,20 +291,35 @@ img { max-width: 100%; display: block; }
   gap: 18px;
 }
 
-.partition-svg {
+.linkograph-svg {
   width: 100%;
   max-width: 300px;
   aspect-ratio: 1;
   overflow: visible;
 }
 
-.partition-svg rect {
+.linkograph-svg circle,
+.linkograph-svg path,
+.linkograph-svg text {
   transform-box: fill-box;
   transform-origin: center;
   cursor: default;
 }
 
-.partition-caption {
+.linkograph-svg .move-dot--critical {
+  animation: linkPulse 1.8s ease-in-out infinite;
+}
+
+.linkograph-svg .link-hit {
+  animation: linkPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes linkPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.5); }
+}
+
+.linkograph-caption {
   font-family: var(--mono);
   font-size: 0.78rem;
   color: var(--paper-dim);
@@ -312,7 +327,7 @@ img { max-width: 100%; display: block; }
   text-align: center;
   min-height: 1.2em;
 }
-.partition-caption .typed-cursor {
+.linkograph-caption .typed-cursor {
   display: inline-block;
   width: 6px;
   color: var(--amber);
