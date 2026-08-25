@@ -255,6 +255,34 @@ img { max-width: 100%; display: block; }
 }
 @keyframes blink { to { visibility: hidden; } }
 
+/* ── Hero descriptor tags ── */
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin-top: 18px;
+  padding: 0;
+}
+.hero-tags li {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--paper-dim);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 6px 14px;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.hero-tags li:nth-child(odd):hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+.hero-tags li:nth-child(even):hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
 /* ── Partition diagram (signature element) ── */
 .hero-visual {
   display: flex;
@@ -267,6 +295,13 @@ img { max-width: 100%; display: block; }
   width: 100%;
   max-width: 300px;
   aspect-ratio: 1;
+  overflow: visible;
+}
+
+.partition-svg rect {
+  transform-box: fill-box;
+  transform-origin: center;
+  cursor: default;
 }
 
 .partition-caption {
@@ -276,6 +311,12 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.02em;
   text-align: center;
   min-height: 1.2em;
+}
+.partition-caption .typed-cursor {
+  display: inline-block;
+  width: 6px;
+  color: var(--amber);
+  animation: blink 1s steps(2, start) infinite;
 }
 
 .scroll-cue {
